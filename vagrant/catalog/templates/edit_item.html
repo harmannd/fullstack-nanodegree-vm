@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "header.html" %}
+    <h1>Edit item</h1>
+
+    <div class="error">{{error}}</div>
+
+    <form action="{{ url_for('editItem', category_name=category_name, item_name=item.name) }}" method="post">
+        <label>Item Name</label>
+        <input type="text" name="name" value="{{ item.name }}">
+
+        <label>Description</label>
+        <input type="text" name="description" value="{{ item.description }}">
+
+        <label>Category</label>
+        <select name="category">
+            {% for category in categories %}
+            <option value="{{category.name}}">{{category.name}}</option>
+            {% endfor %}
+        </select>
+
+        <label>Image URL</label>
+        <input type="text" name="image_url" value="{{ item.image_url }}">
+
+        <input type="submit" name="submit" value="Submit">
+    </form>
+{% endblock %}

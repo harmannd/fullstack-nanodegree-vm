@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "header.html" %}
+    <h1>Delete item</h1>
+
+    <form action="{{ url_for('deleteItem', category_name=category_name, item_name=item.name) }}" method="post">
+        <h3>Are you sure you want to delete {{ item.name }}?</h3>
+
+        <input type="submit" name="submit" value="Delete">
+    </form>
+{% endblock %}

@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "header.html" %}
+    {% for item in items %}
+        <h1>{{item.name}}</h1>
+    {% endfor %}
+{% endblock %}
